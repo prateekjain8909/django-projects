@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Edit Profile</title>
+<style>
+  body {
+          margin: 0;
+          padding: 0;
+          height: 100vh;
+        }
+        #login .container #login-row #login-column #login-box {
+          margin-top: 120px;
+          max-width: 600px;
+          height: 550px;
+          border: 1px solid #9C9C9C;
+          background-color: #EAEAEA;
+        }
+        #login .container #login-row #login-column #login-box #login-form {
+          padding: 20px;
+        }
+        #login .container #login-row #login-column #login-box #login-form #register-link {
+          margin-top: -85px;
+        }
+  .pass_para{
+    color: rosybrown;
+    font-size: .8rem;
+  }
+</style>
+{% endblock %}
+
+
+{% block body %}
+    <div>
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" ><h2>Communication <em>Portal</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/profile">Profile</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+  </div>
+  <div id="login">
+    <h3 class="text-center text-white pt-5">Edit Profile</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" class="form" action="" method="post">
+                      {% csrf_token %}
+                        <div class="form-group">
+                            <label class="text-info" for="id_first_name">First name:</label><br>
+                            <input type="text" name="first_name" value="{{user.first_name}}" maxlength="150" id="id_first_name"class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info" for="id_last_name">Last name:</label><br>
+                            <input type="text" name="last_name" value="{{user.last_name}}" maxlength="150" id="id_last_name"class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info" for="id_email">Email address:</label><br>
+                            <input type="email" name="email" value="{{user.member.email}}" maxlength="254" id="id_email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info" for="id_address">Address:</label><br>
+                            <input type="text" name="address" value="{{user.member.address}}" maxlength="100" required id="id_address" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info" for="id_phone">Phone:</label><br>
+                            <input type="number" name="phone" value="{{user.member.phone}}" required id="id_phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info" for="id_image">Profile Photo:</label><br>
+                            <p>{{form}}</p>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label class="text-info" for="id_image">Profile Photo:</label><br>
+                            <input type="file" name="image" accept="image/*" id="id_image" class="form-control">
+                        </div> -->
+                        <div class="form-group">
+                            <label for="remember-me" class="text-info"><span></span> <span></span></label><br>
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="Save">
+                        </div>
+                        </div>
+                    </form>
+                    <!-- <form method="POST">
+                      {% csrf_token %}
+                      <h2>{{ form.as_p }}</h2>
+                      <button type="submit" class="btn">Submit</button>
+                    </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+<!-- 
+<html lang="en">
+
+  <head>
+    <title>Profile</title>
+  </head>
+
+  <body>
+    <div>
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/home"><h2>Communication <em>Portal</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home
+                    </a>
+                  </li> 
+                  <li class="nav-item ">
+                    <a class="nav-link" href="/videos">Videos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/products">Our Products</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/profile">Profile</a>
+                  </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+  </div>
+  <div class="container" style="padding-top: 100px;">
+    <form method="POST">
+      {% csrf_token %}
+      <h2>{{ form.as_p }}</h2>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </div>
+  </body>
+</html> -->

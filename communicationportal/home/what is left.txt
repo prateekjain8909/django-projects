@@ -1,0 +1,6 @@
+home widgets
+stock price widgets
+profile upload
+back button chat
+file upload at registration
+delete feature on file uploads

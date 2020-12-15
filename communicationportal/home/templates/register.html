@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Register</title>
+<style>
+  body {
+          margin: 0;
+          padding: 0;
+          height: 100vh;
+        }
+        #login .container #login-row #login-column #login-box {
+          margin-top: 120px;
+          max-width: 600px;
+          height: 1000px;
+          border: 1px solid #9C9C9C;
+          background-color: #EAEAEA;
+        }
+        #login .container #login-row #login-column #login-box #login-form {
+          padding: 20px;
+        }
+        #login .container #login-row #login-column #login-box #login-form #register-link {
+          margin-top: -85px;
+        }
+  .pass_para{
+    color: rosybrown;
+    font-size: .8rem;
+  }
+</style>
+{% endblock %}
+
+
+{% block body %}
+    <div>
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/home" ><h2> <em>Register</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Log In</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+  </div>
+  <div id="login">
+    <h3 class="text-center text-white pt-5">Login form</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" class="form" action="" method="post">
+                      {% csrf_token %}
+                        <h3 class="text-center text-info">Register</h3>
+                        <div class="form-group">
+                            <label class="text-info" for="id_username">Username:</label><br>
+                            <input type="text" name="username" maxlength="150" autofocus required id="id_username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info" for="id_first_name">First name:</label><br>
+                            <input type="text" name="first_name" required maxlength="150" id="id_first_name"class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info" for="id_last_name">Las name:</label><br>
+                            <input type="text" name="last_name" maxlength="150" id="id_last_name"class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info" for="id_email">Email address:</label><br>
+                            <input type="email" name="email" required maxlength="254" id="id_email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info" for="id_password1">Password:</label><br>
+                            <input type="password" name="password1" autocomplete="new-password" required id="id_password1" class="form-control">
+                            <ul class = "pass_para">
+                              <li>Your password can’t be too similar to your other personal information.</li>
+                              <li>Your password must contain at least 8 characters.</li>
+                              <li>Your password can’t be a commonly used password.</li>
+                              <li>Your password can’t be entirely numeric.</li>
+                            </ul>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info" for="id_password2">Password confirmation:</label><br>
+                            <input type="password" name="password2" autocomplete="new-password" required id="id_password2" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info" for="id_address">Address:</label><br>
+                            <input type="text" name="address" maxlength="100" required id="id_address" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info" for="id_phone">Phone:</label><br>
+                            <input type="number" name="phone" value="" required id="id_phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info" for="id_image">Profile Photo</label><br>
+                            <input type="file" name="image" required accept="image/*" id="id_image" >
+                        </div>
+                        <div class="form-group">
+                            <label for="remember-me" class="text-info"><span></span> <span></span></label><br>
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="Submit">
+                        </div>
+                        </div>
+                    </form>
+                    <!-- <form method="POST">
+                      {% csrf_token %}
+                      {{ form.as_p }}
+                      <button type="submit" class="btn">Submit</button>
+                    </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- <div class="container" style="padding-top: 100px;">
+      <a class="navbar-brand"><h1><em>Register</em></h1></a>
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div> -->
+{% endblock %}

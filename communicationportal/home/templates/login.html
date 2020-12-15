@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+<html>
+  <head>
+    {% block head %}
+    <title>Log In</title>
+    <style>
+      body {
+              margin: 0;
+              padding: 0;
+              height: 100vh;
+            }
+            #login .container #login-row #login-column #login-box {
+              margin-top: 120px;
+              max-width: 600px;
+              height: 320px;
+              border: 1px solid #9C9C9C;
+              background-color: #EAEAEA;
+            }
+            #login .container #login-row #login-column #login-box #login-form {
+              padding: 20px;
+            }
+            #login .container #login-row #login-column #login-box #login-form #register-link {
+              margin-top: -85px;
+            }
+    </style>
+  {% endblock %}
+  </head>
+  <body>
+    {% block body %}
+    <div>
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/home" ><h2>Communication <em>Portal</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/register">Register</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+  </div>
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                          {% csrf_token %}
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" placeholder="admin" value='admin' name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="password" value="Root@1234" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="remember-me" class="text-info"><a href="/reset-password" class="text-info">Forgot password?</a></label><br>
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Submit">
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <a href="/register" class="text-info">Register here</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>

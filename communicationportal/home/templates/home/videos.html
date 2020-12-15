@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+<html>
+  <head>
+    {% block head %}
+    <title>Videos</title>
+    {% endblock %}
+  </head>
+  <body>
+    {% block body %}
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/home"><h2>Communication <em>Portal</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                    {% if user.username == "admin" %}
+                    <li class="nav-item">
+                    <a class="nav-link" href="add">Add
+                    </a>
+                    </li> 
+                    {% endif %}
+                    <li class="nav-item">
+                <a class="nav-link" href="/home">Home
+                </a>
+              </li> 
+              <li class="nav-item active">
+                <a class="nav-link" href="/videos">Videos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/products">Products</a>
+              </li>
+              <!-- <li class="nav-item ">
+                <a class="nav-link" href="/real-estate">Real Estate</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="/profile">Profile</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <div class=" header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div style="padding-bottom: 30px;" class="products">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="filters">
+              <ul>
+                  <li class="active" data-filter="*">All Videos</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="filters-content">
+                <div class="row grid">
+                  {% for video in videos %}
+                    <div class="col-lg-4 col-md-4 all des">
+                      <div class="product-item">
+                        <video width='350'height="200" controls>
+                        <source src='{{ MEDIA_URL }}{{ video.videofile }}' type='video/mp4'>
+                        Your browser does not support the video tag.
+                        </video>
+                        <div class="down-content">
+                          <a><h4>{{ video.name }}</h4></a>                          
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <ul class="pages">
+              {% if videos.has_previous %}
+                <li><a href="?page={{videos.number|add:'-1'}}"><i class="fa fa-angle-double-left"></i></a></li>
+                <li><a href="?page={{videos.number|add:'-1'}}">{{videos.number|add:'-1'}}</a></li>
+              {% endif %}
+              <li class="active"><a href="?page={{videos.number}}">{{videos.number}}</a></li>
+              {% if videos.has_next %}
+                <li><a href="?page={{videos.number|add:'1'}}">{{videos.number|add:'1'}}</a></li>
+                <li><a href="?page={{videos.number|add:'1'}}"><i class="fa fa-angle-double-right"></i></a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+  </body>
+
+</html>
