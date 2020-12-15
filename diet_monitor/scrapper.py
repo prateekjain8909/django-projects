@@ -9,7 +9,6 @@ import sqlite3
 # url = "https://recipes.sparkpeople.com/recipe-detail.asp?recipe=18160"
 # html = urllib.request.urlopen(url).read()
 # soup = bs(html, "html.parser")
-# soup = bs(html, "html.parser")
 
 def get_ingredients(soup):
     ingredients = soup.find(id="ingredients").get_text("\n").strip()
