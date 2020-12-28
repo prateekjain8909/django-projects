@@ -1,0 +1,111 @@
+<html>
+<head>
+
+<style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      </style>
+</head>
+<body>
+<form method="get">
+      <input id = 'q' name="q" type="text" placeholder="Search food...">
+      <button><a href="/">Back</a></button>
+
+</form>
+
+{% for item in food %}
+<h2>{{item.food}} </h2>
+<!-- <br> -->
+<h3>Recipie :</h3>
+{{item.procedure}}
+<br>
+<br>
+<table style="width:100%">
+<tr>
+      <th>Servings</th>
+<!-- <th>Ingredients</th> -->
+<!-- <th>Procedure</th> -->
+      <th>Calories</th>
+      <th>Total_Fat</th>
+      <th>Saturated_Fat</th>
+      <th>Polyunsaturated_Fat</th>
+      <th>Monounsaturated_Fat</th>
+      <th>Cholesterol</th>
+      <th>Sodium</th>
+      <th>Potassium</th>
+      <th>Total_Carbohydrate</th>
+      <th>Dietary_Fiber</th>
+      <th>Sugars</th>
+      <th>Protein</th>
+      <th>Vitamin_A</th>
+      <th>Vitamin_B12</th>
+      <th>Vitamin_B6</th>
+      <th>Vitamin_C</th>
+      <th>Vitamin_D</th>
+      <th>Vitamin_E</th>
+</tr>
+<tr>
+      <th>{{item.servings}}</th>
+      <!-- <th>{{item.ingredients}}</th>
+      <th>{{item.procedure}}</th> -->
+      <th>{{item.calories}}</th>
+      <th>{{item.total_fat}}</th>
+      <th>{{item.saturated_fat}}</th>
+      <th>{{item.polyunsaturated_fat}}</th>
+      <th>{{item.monounsaturated_fat}}</th>
+      <th>{{item.cholesterol}}</th>
+      <th>{{item.sodium}}</th>
+      <th>{{item.potassium}}</th>
+      <th>{{item.total_carbohydrate}}</th>
+      <th>{{item.dietary_fiber}}</th>
+      <th>{{item.sugars}}</th>
+      <th>{{item.protein}}</th>
+      <th>{{item.vitamin_a}}</th>
+      <th>{{item.vitamin_b12}}</th>
+      <th>{{item.vitamin_b6}}</th>
+      <th>{{item.vitamin_c}}</th>
+      <th>{{item.vitamin_d}}</th>
+      <th>{{item.vitamin_e}}</th>
+</tr>
+
+<tr>
+      <th>Calcium</th>
+      <th>Copper</th>
+      <th>Folate</th>
+      <th>Iron</th>
+      <th>Magnesium</th>
+      <th>Manganese</th>
+      <th>Niacin</th>
+      <th>Pantothenic_Acid</th>
+      <th>Phosphorus</th>
+      <th>Riboflavin</th>
+      <th>Selenium</th>
+      <th>Thiamin</th>
+      <th>Zinc</th>
+</tr>
+<tr>
+      <th>{{item.calcium}}</th>
+      <th>{{item.copper}}</th>
+      <th>{{item.folate}}</th>
+      <th>{{item.iron}}</th>
+      <th>{{item.magnesium}}</th>
+      <th>{{item.manganese}}</th>
+      <th>{{item.niacin}}</th>
+      <th>{{item.pantothenic_acid}}</th>
+      <th>{{item.phosphorus}}</th>
+      <th>{{item.riboflavin}}</th>
+      <th>{{item.selenium}}</th>
+      <th>{{item.thiamin}}</th>
+      <th>{{item.zinc}}</th>
+</tr>
+</table>
+<!-- {{item.servings}}  -->
+<!-- {{item.food}}
+{{item.food}} -->
+<!-- <br> -->
+<!-- <br> -->
+{% endfor %}
+</body>
+</html>

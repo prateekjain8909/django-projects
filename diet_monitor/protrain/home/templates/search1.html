@@ -1,0 +1,13 @@
+<form method="get">
+      <input id = 'q' name="q" type="text" placeholder="Search food...">
+</form>
+
+{% for item in food %}
+{{item.food}}
+{{item.procedure}}
+<!-- {{item.servings}}  -->
+<!-- {{item.food}}
+{{item.food}} -->
+<br>
+<br>
+{% endfor %}

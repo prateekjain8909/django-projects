@@ -1,0 +1,108 @@
+{% load static %}
+<html>
+<head>
+    <title>Calendar</title>
+  <link rel="stylesheet" href="{% static 'home/css/calendar.css' %}">
+  <!-- <link rel="stylesheet" href="{% static 'home/css/main.min.css' %}"> -->
+</head>
+
+<body class="mobile-shift" style="background-color: #a2ca28;">
+<!-- {{calendar}} -->
+<!-- <section>
+    <div class="fixed-navbar">
+
+        <div class="navbar-lockup">
+
+            <div class="logo">
+
+                <h2 style="color: #fc2103;">Diet-Monitor</h2>
+
+            </div>
+
+            <ul class="nav">
+
+                <li><a href="">About</a></li>
+                <li><a href="">How It Works</a></li>
+                <li><a href="/monitor/">Monitor</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="login/">Log in</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+</section> -->
+
+<section>
+		<div class="calendar">
+
+			<div class="col leftCol">
+				<div class="content">
+					<!-- <h1 class="date">Friday<span>September 12th</span></h1> -->
+					<h1 class="date">{{day}}, {{month}}</h1>
+					<div class="notes">
+						<p>
+							<input type="text" value="" placeholder="new note"/>
+							<a href="#" title="Add note" class="addNote animate">+</a>
+						</p>
+						<ul class="noteList">
+							<li>Headbutt a lion<a href="#" title="Remove note" class="removeNote animate">x</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="col rightCol">
+				<div class="content">
+					<h2 class="year">{{year}}</h2>
+					<ul class="weekday">
+						<li><a href="#" title="Mon" data-value="1">Mon</a></li>
+						<li><a href="#" title="Tue" data-value="2">Tue</a></li>
+						<li><a href="#" title="Wed" data-value="3">Wed</a></li>
+						<li><a href="#" title="Thu" data-value="4">Thu</a></li>
+						<li><a href="#" title="Fri" data-value="5">Fri</a></li>
+						<li><a href="#" title="Say" data-value="6">Sat</a></li>
+						<li><a href="#" title="Sun" data-value="7">Sun</a></li>
+					</ul>
+					<div class="clearfix"></div>
+					<ul class="days">
+                        {% for date in calendar %}
+                        {% if date != 0 %}
+						<li><a href="#" title="{{date}}"
+							 {% if date == today.day %} 
+							 class="selected" 
+							 {% endif %} 
+							 data-value="{{date}}">{{date}}</a>
+						</li>
+                        {% endif %}
+                        {% if date == 0 %}
+                        <li><a href='' title="{{date}}" data-value="{{date}}"></a></li>
+                        {% endif %}
+                        {% endfor %}
+						<!-- <script>
+							for( var _i = 1; _i <= 31; _i += 1 ){
+								var _addClass = '';
+								if( _i === 12 ){ _addClass = ' class="selected"'; }
+								
+								switch( _i ){
+									case 8:
+									case 10:
+									case 27:
+										_addClass = ' class="event"';
+									break;
+								}
+
+								document.write( '<li><a href="#" title="'+_i+'" data-value="'+_i+'"'+_addClass+'>'+_i+'</a></li>' );
+							}
+						</script> -->
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+
+			<div class="clearfix"></div>
+
+        </div> 
+</section>
+</body>
+</html>
